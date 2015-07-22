@@ -1,0 +1,22 @@
+#
+# This is just an example of simple configuration file
+# Please be sure that awscli is installed and configured
+#  - You need to have something like this inside ~/.aws/config
+#
+#
+#      [profile myaccount]
+#      aws_access_key_id = xxxxxxxx
+#      aws_secret_access_key = aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#
+#      [profile anotheraccount]
+#      aws_access_key_id = xxxxxxxx
+#      aws_secret_access_key = aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#
+#      [profile onemoreaccount]
+#      aws_access_key_id = xxxxxxxx
+#      aws_secret_access_key = aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#
+#
+# So your profile variable should be like this: AWS_PROFILES="myaccount anotheraccount onemoreaccount"
+#
+AWS_PROFILES=""

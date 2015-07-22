@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# Usage:
+#  ./populate_iam_user.sh > ml
+
+# We are cool guys ;-)
+set -e
+
+# Change this if you want to
+BASEDIR=$(dirname $0)
+
+if [ ! -f "${BASEDIR}/.profiles" ]
+then
+  echo "You need to create .profiles file first"
+  exit 1
+fi
+
+. "${BASEDIR}/.profiles"
+
+echo "Building local database of all IAM users..."
+
+for profile in ${AWS_PROFILES}
+do
+
+  USERS=$(aws --profile "${profile}" --output 'text' iam list-users | awk '{print $NF}')
+
+  echo "- Profile: ${profile}"
+
+  # Let's clean old data
+  :> "${BASEDIR}/database/${profile}"
+
+  for user in $USERS
+  do
+    #aws --profile "${profile}" --output 'text' iam list-access-keys --user-name "${user}" | tee -a file.txt
+    aws --profile "${profile}" --output 'text' iam list-access-keys --user-name "${user}" >> "${BASEDIR}/database/${profile}"
+
+    # ctrl+c support
+    test $? -gt 128 && exit
+  done
+
+done
+
+echo "done"
