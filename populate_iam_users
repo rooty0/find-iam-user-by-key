@@ -15,6 +15,9 @@ then
   exit 1
 fi
 
+[ -d "${BASEDIR}/database" ] || mkdir -p "${BASEDIR}/database"
+
+
 . "${BASEDIR}/.profiles"
 
 echo "Building local database of all IAM users..."
