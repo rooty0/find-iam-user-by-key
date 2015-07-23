@@ -3,7 +3,6 @@
 # Please be sure that awscli is installed and configured
 #  - You need to have something like this inside ~/.aws/config
 #
-#
 #      [profile myaccount]
 #      aws_access_key_id = xxxxxxxx
 #      aws_secret_access_key = aaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -16,7 +15,10 @@
 #      aws_access_key_id = xxxxxxxx
 #      aws_secret_access_key = aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 #
-#
 # So your profile variable should be like this: AWS_PROFILES="myaccount anotheraccount onemoreaccount"
+#
+# NOTE: You can use keys in your envirement instead, if you want to. It is convenient to do that if you have single AWS account aka single profile
+# If you going to manage single account only - simply set profile variable to this: AWS_PROFILES="default"
+#
 #
 AWS_PROFILES=""
