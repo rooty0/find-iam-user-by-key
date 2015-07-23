@@ -10,12 +10,12 @@ This tool helps to find a user name by provided aws key.
 Key Features of this tool:
 
 * Simple. Just bash scrips
-* Can be used for search in multiple accounts at same time. You just need to simply provide profiles in your configuration file
-* Really fast! Because of cache strategy
+* Can be used for search in multiple accounts at same time. You just need to provide profiles in the configuration file of this tool
+* Really fast!!! Because of cache strategy
 
-There are some solutions online ([like this one](https://gist.github.com/OnlyInAmerica/9964456 
+There are some solutions online ([like this one](https://gist.github.com/OnlyInAmerica/9964456
 "Find an AWS IAM user corresponding to an AWS Access Key")) which can do similar things,
-but they doesn't fit with features above. 
+but they doesn't fit with features above.
 
 ###populate_iam_users
 
@@ -32,7 +32,7 @@ Output example:
     
 ###find_user_by_key
 
-This script reads local database and performs searching for a specific user which owns provided key. 
+This script reads local database and performs searching for a specific user which owns provided key.
 
 Output example:
 
