@@ -2,4 +2,16 @@
 #
 BASEDIR=$(dirname $0)
 
+if [ -z "$1" ]
+then
+  echo "Please specify aws key"
+  echo "Example: $0 ASHAUDI7OHTH0TASHI8O"
+  exit 1
+fi
+
 grep -r "$1" "${BASEDIR}"
+
+if [ $? -gt 0 ]
+then
+  echo "Nothing Found"
+fi
