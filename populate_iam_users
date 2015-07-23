@@ -1,7 +1,5 @@
 #!/bin/sh
 #
-# Usage:
-#  ./populate_iam_user.sh > ml
 
 # We are cool guys ;-)
 set -e
