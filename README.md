@@ -57,7 +57,8 @@ You should create config file first
     $ chmod 600 .profiles
     
 See information inside for more details
- 
+
+Or run it with AWS_PROFILES configured
 
 ##Development
 
