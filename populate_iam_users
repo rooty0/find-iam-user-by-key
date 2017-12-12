@@ -7,7 +7,7 @@ set -e
 # Change this if you want to
 BASEDIR=$(dirname $0)
 
-if [ ! -f "${BASEDIR}/.profiles" ]
+if [[ ! -f "${BASEDIR}/.profiles" && -z "${AWS_PROFILES}" ]]
 then
   echo "You need to create .profiles file first"
   exit 1
@@ -16,7 +16,10 @@ fi
 [ -d "${BASEDIR}/database" ] || mkdir -p "${BASEDIR}/database"
 
 
-. "${BASEDIR}/.profiles"
+if [ -z "${AWS_PROFILES}" ]
+then
+  . "${BASEDIR}/.profiles"
+fi
 
 echo "Building local database of all IAM users..."
 
