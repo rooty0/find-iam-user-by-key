@@ -17,7 +17,7 @@
 #
 # So your profile variable should be like this: AWS_PROFILES="myaccount anotheraccount onemoreaccount"
 #
-# NOTE: You can use keys in your envirement instead, if you want to. It is convenient to do that if you have single AWS account aka single profile
+# NOTE: You can use keys in your environment instead, if you want to. It is convenient to do that if you have single AWS account aka single profile
 # If you going to manage single account only - simply set profile variable to this: AWS_PROFILES="default"
 #
 #

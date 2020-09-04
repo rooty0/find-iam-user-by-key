@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
-BASEDIR=$(dirname $0)
+BASEDIR=$(dirname "$0")
+IAM_USER_KEY=$1
 
-if [ -z "$1" ]
+if [ -z "${IAM_USER_KEY}" ]
 then
   echo "Please specify aws key"
   echo "Example: $0 ASHAUDI7OHTH0TASHI8O"
   exit 1
 fi
 
-grep -r "$1" "${BASEDIR}"
-
-if [ $? -gt 0 ]
+if ! FOUND_RESULT=$(grep -ir "${IAM_USER_KEY}" "${BASEDIR}/profile_cache" 2>/dev/null)
 then
-  echo "Nothing Found"
+  echo "IAM Key ${IAM_USER_KEY} not found"
+  exit 1
 fi

@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
-BASEDIR=$(dirname $0)
+BASEDIR=$(dirname "$0")
 
-#rm -fv "${BASEDIR}/database/*"
-find "${BASEDIR}/database" -type f -exec /bin/rm -vf {} \;
+find "${BASEDIR}/profile_cache" -type f -exec /bin/rm -vf {} \;

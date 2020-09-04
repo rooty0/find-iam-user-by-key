@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 
 # We are cool guys ;-)
@@ -7,13 +7,13 @@ set -e
 # Change this if you want to
 BASEDIR=$(dirname $0)
 
-if [[ ! -f "${BASEDIR}/.profiles" && -z "${AWS_PROFILES}" ]]
+if [ ! -f "${BASEDIR}/.profiles" ] && [ -z "${AWS_PROFILES}" ]
 then
-  echo "You need to create .profiles file first"
+  echo "You need to create .profiles configuration file first or define environment variable AWS_PROFILES"
   exit 1
 fi
 
-[ -d "${BASEDIR}/database" ] || mkdir -p "${BASEDIR}/database"
+[ -d "${BASEDIR}/profile_cache" ] || mkdir -p "${BASEDIR}/profile_cache"
 
 
 if [ -z "${AWS_PROFILES}" ]
@@ -21,7 +21,7 @@ then
   . "${BASEDIR}/.profiles"
 fi
 
-echo "Building local database of all IAM users..."
+echo "Building local cache of all IAM users from..."
 
 for profile in ${AWS_PROFILES}
 do
@@ -31,12 +31,12 @@ do
   echo "- Profile: ${profile}"
 
   # Let's clean old data
-  :> "${BASEDIR}/database/${profile}"
+  :> "${BASEDIR}/profile_cache/${profile}"
 
   for user in $USERS
   do
     #aws --profile "${profile}" --output 'text' iam list-access-keys --user-name "${user}" | tee -a file.txt
-    aws --profile "${profile}" --output 'text' iam list-access-keys --user-name "${user}" >> "${BASEDIR}/database/${profile}"
+    aws --profile "${profile}" --output 'text' iam list-access-keys --user-name "${user}" >> "${BASEDIR}/profile_cache/${profile}"
 
     # ctrl+c support
     test $? -gt 128 && exit
