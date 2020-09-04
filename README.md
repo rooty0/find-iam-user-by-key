@@ -10,8 +10,8 @@ This tool helps to find a user name by provided aws key.
 Key Features of this tool:
 
 * Simple. Just bash scrips
-* Use it for search in **multiple accounts** at the same time! You need to provide profiles in the configuration file of this tool, see ``.profiles.example`` configuration file
-* Really fast!!! Because of cache strategy
+* Use it to search in **multiple accounts** at the same time! You need to provide profiles in the configuration file of this tool, see ``.profiles.example`` configuration file
+* Really fast!!! (Because of local cache)
 
 There are some solutions online ([like this one](https://gist.github.com/OnlyInAmerica/9964456
 "Find an AWS IAM user corresponding to an AWS Access Key")) which can do similar things,
@@ -48,12 +48,13 @@ Output example:
 
 There're 2 options you can follow:
 
-You should create config file first (See information inside the file for more details)
+- Create a config file (See information inside the file for more details)
+
 
     $ cp .profiles.example .profiles
     $ chmod 600 .profiles
     
-*Other option* is to define environment variable ``AWS_PROFILES`` instead of using config ``.profiles`` . FYI, don't
+- **Other option** is to define environment variable ``AWS_PROFILES`` instead of using config ``.profiles`` . FYI, don't
 confuse environment variables ``AWS_PROFILES`` with ``AWS_PROFILE`` that related to aws cli.
 
 ## Development
