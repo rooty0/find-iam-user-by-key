@@ -48,13 +48,12 @@ Output example:
 
 There're 2 options you can follow:
 
-- Create a config file (See information inside the file for more details)
-
+Create a config file (See information inside the file for more details)
 
     $ cp .profiles.example .profiles
     $ chmod 600 .profiles
 
-- **Other option** is to define environment variable ``AWS_PROFILES`` instead of using config ``.profiles`` . FYI, don't
+**Other option** is to define environment variable ``AWS_PROFILES`` instead of using config ``.profiles`` . FYI, don't
 confuse environment variables ``AWS_PROFILES`` with ``AWS_PROFILE`` that related to aws cli.
 
 ## Development
